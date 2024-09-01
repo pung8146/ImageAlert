@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ImageAlert",
+  "version": "1.0.0",
+  "description": "Sends notifications when saved images appear on web pages",
+  "permissions": ["storage", "activeTab", "notifications"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.js"]
+    }
+  ]
+}
