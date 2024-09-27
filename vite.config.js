@@ -1,3 +1,5 @@
+// vite.config.js
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -6,12 +8,13 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        popup: "index.html",
-        content: "src/content/content.js",
-        background: "src/background/background.js",
+        popup: "public/popup.html",
+        options: "public/options.html",
       },
       output: {
-        entryFileNames: "[name].js",
+        entryFileNames: "dist/[name].js",
+        chunkFileNames: "dist/[name].js",
+        assetFileNames: "dist/[name].[ext]",
       },
     },
   },
